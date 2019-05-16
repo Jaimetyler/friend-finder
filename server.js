@@ -12,8 +12,8 @@ app.use(express.json());
 // app.use(bodyParser.raw({ type: 'application/vnd.custom-type'}));
 
 
+require("./app/routing/apiRoutes.js")(app);
 require("./app/routing/htmlRoutes.js")(app);
-
 
 
 app.listen(PORT, function() {

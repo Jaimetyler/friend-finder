@@ -143,5 +143,6 @@ var friends = [
             "3"
         ]
     },
-    
 ]
+
+module.exports = friends;
