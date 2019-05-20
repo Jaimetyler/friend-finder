@@ -29,16 +29,17 @@ module.exports = function (app) {
             totalDifference = 0;
 
             for (j = 0; j < friends[i].scores[j]; j++) {
-                totalDifference += Math.abs(paseInt(userScores[j]) - parseInt(friends[i].scores[j]));
+                totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
 
                 if (totalDifference <= bestMatch.friendDifference) {
                     bestMatch.name = friends[i].name;
                     bestMatch.photo = friends[i].photo;
-                    bestMatch.friendDifference = friends[i];
+                    bestMatch.friendDifference = totalDifference;
                 }
             }
         }
 
-        friends.push(userInfo)
+        friends.push(userInfo);
+        res.json(bestMatch)
     })
 }
